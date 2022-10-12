@@ -1,0 +1,20 @@
+.main {
+  width: 100%;
+}
+
+.main__container {
+  margin-top: 20px;
+  border-radius: 15px;
+  width: 100%;
+  height: 756px;
+  /*background-color: white;*/
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background: transparent;
+}
+
+/*.main__container:hover {*/
+/*  opacity: 0.2;*/
+/*}*/

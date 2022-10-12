@@ -1,0 +1,31 @@
+.sidebar {
+  width: 100px;
+  /*height: calc(100vh - 100px);*/
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-self: flex-start;
+  border-radius: 10px;
+  left: 15px;
+  top: 85px;
+  background: transparent;
+  transition: width ease-in-out .5s;
+}
+
+.sidebar_type_wide {
+  width: 225px;
+}
+
+.sidebar_type_narrow {
+  width: 85px;
+}
+
+.sidebar_type_hidden {
+  display: none;
+}
+
+.sidebar:hover {
+  cursor: pointer;
+}

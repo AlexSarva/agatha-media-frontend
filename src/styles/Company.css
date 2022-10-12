@@ -1,0 +1,71 @@
+.company {
+  margin: 10px;
+  width: calc(100% - 20px);
+  min-height: calc(100vh - 120px);
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 50px repeat(4, 1fr);
+  grid-template-areas:
+    "back menu menu menu button button"
+    "card card map map map map "
+    "donut graph map map map map"
+    "dynamic dynamic dynamic dynamic coub coub"
+    "dynamic dynamic dynamic dynamic coub coub";
+  gap: 15px;
+  color: #FFFFFF;
+}
+
+.company__element {
+  width: 100%;
+  background: linear-gradient(126.97deg, rgba(6, 11, 38, 0.74) 28.26%, rgba(26, 31, 55, 0.5) 91.2%);
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.company__element_type_donut {
+  grid-area: donut;
+}
+
+.company__element_type_graph {
+  grid-area: graph;
+}
+
+.company__element_type_card {
+  grid-area: card;
+}
+
+.company__element_type_map {
+  grid-area: map;
+}
+
+.company__element_type_dynamic {
+  grid-area: dynamic;
+}
+
+.company__element_type_coub {
+  grid-area: coub;
+}
+
+.company__element_type_menu {
+  grid-area: menu;
+}
+
+.company__element_type_back {
+  grid-area: back;
+  border: none;
+  height: 40px;
+  align-self: center;
+  box-shadow: inset 0 0 0.0625rem 0.0625rem rgb(255 255 255 / 90%), 0 1.25rem 1.6875rem 0 rgb(0 0 0 / 5%);
+  color: #FFFFFF;
+}
+
+.company__element_type_button {
+  grid-area: button;
+  border: none;
+  height: 40px;
+  align-self: center;
+  box-shadow: inset 0 0 0.0625rem 0.0625rem rgb(255 255 255 / 90%), 0 1.25rem 1.6875rem 0 rgb(0 0 0 / 5%);
+  color: #FFFFFF;
+}
