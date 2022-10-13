@@ -18,8 +18,19 @@ class Api {
         return Promise.reject(`Ошибка ${res.status}`);
     }
 
-    getGraphInfo(query) {
-        return fetch(`${this._baseUrl}/api/graph`, {
+    getGraphByURL(query) {
+        return fetch(`${this._baseUrl}/api/graph/url`, {
+            headers: this._headers,
+            method: 'POST',
+            body: JSON.stringify({
+                query: query,
+            })
+        })
+            .then(this._checkResponse)
+    }
+
+    getGraphByID(query) {
+        return fetch(`${this._baseUrl}/api/graph/id`, {
             headers: this._headers,
             method: 'POST',
             body: JSON.stringify({

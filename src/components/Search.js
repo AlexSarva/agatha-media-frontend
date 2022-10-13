@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import '../styles/Search.css';
 import api from '../utils/api';
 import {navigationMap} from '../utils/constants';
@@ -12,6 +12,7 @@ function Search(props) {
     const [query, setQuery] = useState('');
     const [searchResult, setSearchResult] = useState([{},]);
     const [searchPopup, setSearchPopup] = useState(false);
+    const searchValue = useRef();
 
     function activeSearch() {
         setActive(true);
@@ -25,6 +26,7 @@ function Search(props) {
         console.log(res);
         setQuery(res.url);
         setSearchPopup(false);
+        searchValue.current.focus();
     }
 
     function handleQuery(e) {
@@ -32,8 +34,8 @@ function Search(props) {
         if (e.target.value.length >= 3) {
             api.getSearch(e.target.value)
                 .then((res) => {
-                    console.log(res);
-                    console.log(searchResult);
+                    // console.log(res);
+                    // console.log(searchResult);
                     setSearchResult(res);
                     setSearchPopup(true);
                 })
@@ -43,7 +45,6 @@ function Search(props) {
                 })
         }
         setSearchPopup(false);
-        console.log(e.target.value, e.target.value.length);
     }
 
     function handleSubmit(e) {
@@ -66,7 +67,7 @@ function Search(props) {
                   className="search__form"
                   name="search-form" noValidate>
                 <fieldset className="search__field-set">
-                    <input value={query} type="text" className="search__input" onChange={handleQuery}
+                    <input ref={searchValue} value={query} type="text" className="search__input" onChange={handleQuery}
                            placeholder="Ссылка на источник"
                            required
                            name="search-input"/>

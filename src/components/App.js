@@ -18,12 +18,14 @@ function App() {
         edges: []
     });
 
+
+
     function handleSidebar() {
         setSidebarOpened(!sidebarOpened);
     }
 
-    function handleUpdateGraphInfo({query}) {
-        api.getGraphInfo(query)
+    function handleGetGraphInfo({query}) {
+        api.getGraphByURL(query)
             .then(({nodes, edges}) => {
                 setGraph({
                         ...graph,
@@ -46,7 +48,7 @@ function App() {
                         <Route path="/" element={
                             <Layout sidebarOpened={sidebarOpened}
                                     onClickSidebar={handleSidebar}
-                                    onSubmitSearch={handleUpdateGraphInfo}/>
+                                    onSubmitSearch={handleGetGraphInfo}/>
                         }>
                             <Route index element={<Main searchValue={searchValue}
                                                         graphData={graph}
