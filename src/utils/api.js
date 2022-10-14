@@ -29,6 +29,36 @@ class Api {
             .then(this._checkResponse)
     }
 
+    getSourceByURL(query) {
+        return fetch(`${this._baseUrl}/api/source/url`, {
+            headers: this._headers,
+            method: 'POST',
+            body: JSON.stringify({
+                query: query,
+            })
+        })
+            .then(this._checkResponse)
+    }
+
+    getSourceByID(query) {
+        return fetch(`${this._baseUrl}/api/source/id`, {
+            headers: this._headers,
+            method: 'POST',
+            body: JSON.stringify({
+                query: query,
+            })
+        })
+            .then(this._checkResponse)
+    }
+
+    getFullGraph() {
+        return fetch(`${this._baseUrl}/api/graph`, {
+            headers: this._headers,
+            method: 'GET',
+        })
+            .then(this._checkResponse)
+    }
+
     getGraphByID(query) {
         return fetch(`${this._baseUrl}/api/graph/id`, {
             headers: this._headers,

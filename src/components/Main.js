@@ -1,7 +1,10 @@
 import '../styles/Main.css';
-import {Link} from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 import NetworkGraph from './NetworkGraph';
-import {useState} from 'react';
+import React, {useState} from 'react';
+// import ReGraphTest from './ReGraphTest';
+import NetworkGraphNew from './NetworkGraphNew';
+import {navigationMap} from '../utils/constants';
 
 function Main(props) {
 
@@ -10,11 +13,19 @@ function Main(props) {
     return (
         <div className={`main`} >
             <div className="main__container">
-                {/*<button onClick={props.onLoadBnt} type="button" className=" button"*/}
-                {/*        value="loadGraph" name="loadGraph-btn">Загрузить</button>*/}
-                <NetworkGraph graphData={props.graphData} />
+                <ul className="main__list">
+                    {props.srcsData.map((item,n) => (
+                        <li key={n} className="main__element">
+                            <div>{item.id}</div>
+                            <div>{item.title}</div>
+                            <div>{item.label}</div>
+                        </li>
+                    ))}
+                </ul>
+                {/*<NetworkGraph graphData={props.graphData} />*/}
+                <NetworkGraphNew graphData={props.graphData} onNewSource={props.onNewSource}/>
             </div>
-            <Link to="/company" >Переход</Link>
+            {/*<Link to="/company" >Переход</Link>*/}
         </div>
     )
 }

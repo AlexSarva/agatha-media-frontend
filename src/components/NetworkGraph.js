@@ -4,78 +4,43 @@ import {v4 as uuidv4} from 'uuid';
 import api from '../utils/api';
 
 const options = {
-    // layout: {
-    //     hierarchical: false
-    // },
-    edges: {
-        color: "rgba(43,44,79,0.75)",
-        width: 1.3,
-        smooth: {
-            enabled: false,
-            type: "continuous",
-        },
-        arrows: {
-            to: {
-                enabled: true,
-                type: "arrow",
-            }
-        }
-    },
-    // edges: {
-    //     // width: 0.15,
-    //     color: "rgba(43,44,79,0.75)",
-    //     // color: { inherit: "from" },
-    //     smooth: {
-    //         type: "continuous",
-    //     },
-    // },
-
     nodes: {
         shape: "dot",
-        // scaling: {
-        //     customScalingFunction: function (min, max, total, value) {
-        //         return value / total;
-        //     },
-        //     min: 5,
-        //     max: 150,
-        // },
         scaling: {
             min: 10,
             max: 30,
         },
         font: {
-            size: 12,
+            size: 18,
+            face: "Tahoma",
             color: "rgb(250,226,217)",
-            // face: "Tahoma",
         },
     },
-    // physics: {
-    //     stabilization: {
-    //         iterations: 500,
-    //     },
-    //     barnesHut: {
-    //         gravitationalConstant: -180000,
-    //         springConstant: 0.1,
-    //         springLength: 100,
-    //     },
-    // },
+    edges: {
+        color: "rgba(43,44,79,0.75)",
+        width: 1.3,
+        arrows: {
+            to: {
+                enabled: true,
+                type: "arrow",
+            }
+        },
+        // width: 0.15,
+        // color: { inherit: "from" },
+        smooth: {
+            type: "continuous",
+        },
+    },
     physics: {
-        adaptiveTimestep: true,
+        stabilization: false,
         barnesHut: {
             gravitationalConstant: -80000,
-            springConstant: 0.05,
-            springLength: 95
+            springConstant: 0.04,
+            springLength: 100,
+            damping: 1,
         },
-        stabilization: {
-            iterations: 2000
-        }
-    },
-    layout: {
-        randomSeed: 191006,
-        improvedLayout: true
     },
     interaction: {
-        // interaction: { hover: true },
         tooltipDelay: 200,
         hideEdgesOnDrag: true,
     },

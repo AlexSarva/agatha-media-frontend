@@ -11,28 +11,32 @@ import {AuthProvider} from '../hoc/AuthProvider';
 import {myGraphData} from '../utils/constants';
 
 function App() {
-    const [sidebarOpened, setSidebarOpened] = useState(true);
+    const [sidebarOpened, setSidebarOpened] = useState(false);
     const [searchValue, setSearchValue] = useState({query: ''});
+    const [srcsList, setSrcsList] = useState([]);
     const [graph, setGraph] = useState({
         nodes: [],
         edges: []
     });
 
-
-
     function handleSidebar() {
         setSidebarOpened(!sidebarOpened);
     }
 
+    function handleNewSource(srcs) {
+        setSrcsList([...srcsList, srcs]);
+    }
+
     function handleGetGraphInfo({query}) {
-        api.getGraphByURL(query)
-            .then(({nodes, edges}) => {
+        Promise.all([api.getGraphByURL(query), api.getSourceByURL(query)])
+            .then(([graphData, srcsInfo]) => {
                 setGraph({
                         ...graph,
-                    nodes,
-                    edges
+                    nodes: graphData.nodes,
+                    edges: graphData.edges,
                     }
-                )
+                );
+                setSrcsList([...srcsList, srcsInfo]);
             })
             .catch((err) => {
                 console.log(`Ошибка: ${err}`);
@@ -52,6 +56,8 @@ function App() {
                         }>
                             <Route index element={<Main searchValue={searchValue}
                                                         graphData={graph}
+                                                        srcsData={srcsList}
+                                                        onNewSource={handleNewSource}
                             />}/>
                             {/*<Route path="company" element={<Companies orgsList={companiesList} />}/>*/}
                             {/*<Route path="company/:id" element={<Company />}/>*/}
