@@ -17,6 +17,7 @@ export const signLogos = [
 
 export const navigationMap = [
     {path: "/", title: "Главная", icon: navMain},
+    {path: "/graphs", title: "Мои графы", icon: navOKPD},
     // {path: "/company", title: "Организации", icon: navOrgs},
     // {path: "/govs", title: "Госзаказ", icon: navGov},
     // {path: "/okpd", title: "Товары", icon: navOKPD},

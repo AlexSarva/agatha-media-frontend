@@ -1,0 +1,32 @@
+.main {
+  width: 100%;
+}
+
+.main__container {
+  margin-top: 20px;
+  border-radius: 15px;
+  width: 100%;
+  /*height: 756px;*/
+  /*background-color: white;*/
+  display: flex;
+  /*flex-direction: column;*/
+  justify-content: flex-start;
+  align-items: center;
+  background: transparent;
+  column-gap: 10px;
+  /*border: 1px solid yellow;*/
+  height: calc(100vh - 110px);
+}
+
+.main__graph {
+  width: calc(100% - 200px);
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  /*outline: 1px solid red;*/
+}
+
+
+/*.main__container:hover {*/
+/*  opacity: 0.2;*/
+/*}*/

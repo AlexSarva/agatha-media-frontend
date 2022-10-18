@@ -70,6 +70,20 @@ class Api {
             .then(this._checkResponse)
     }
 
+    getGraphByUUID(graph_id, token) {
+        return fetch(`${this._baseUrl}/api/graph/uuid`, {
+            headers: {
+                ...this._headers,
+                'Authorization': `Bearer ${token}`
+            },
+            method: 'POST',
+            body: JSON.stringify({
+                graph_id: graph_id,
+            })
+        })
+            .then(this._checkResponse)
+    }
+
     getSearch(query) {
         return fetch(`${this._baseUrl}/api/search`, {
             headers: this._headers,
@@ -81,13 +95,47 @@ class Api {
             .then(this._checkResponse)
     }
 
-    getFullGraph() {
-        return fetch(`${this._baseUrl}/api/graph`, {
-            headers: this._headers,
+    addNewGraph({description, sources, uuid}, token) {
+        return fetch(`${this._baseUrl}/api/graph/new`, {
+            headers: {
+                ...this._headers,
+                'Authorization': `Bearer ${token}`
+            },
+            method: 'POST',
+            body: JSON.stringify({
+                description: description,
+                sources: sources,
+                graph_id: uuid,
+            })
+        })
+            .then(this._checkResponse)
+    }
+
+    getGraphCards(token) {
+        return fetch(`${this._baseUrl}/api/graph/all`, {
+            headers: {
+                ...this._headers,
+                'Authorization': `Bearer ${token}`
+            },
             method: 'GET',
         })
             .then(this._checkResponse)
     }
+
+    deleteGraphCard(graph_id, token) {
+        return fetch(`${this._baseUrl}/api/graph/del`, {
+            headers: {
+                ...this._headers,
+                'Authorization': `Bearer ${token}`
+            },
+            method: 'DELETE',
+            body: JSON.stringify({
+                graph_id: graph_id,
+            })
+        })
+            .then(this._checkResponse)
+    }
+
 }
 
 const api = new Api(apiConfig);
