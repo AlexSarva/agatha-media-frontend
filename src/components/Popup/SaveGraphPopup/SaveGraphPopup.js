@@ -15,11 +15,8 @@ function SaveGraphPopup(props) {
         let graphInfo = props.graphInfo;
         graphInfo.description = description.current.value;
 
-        console.log(JSON.stringify(graphInfo), "Bearer " + token)
-
         api.addNewGraph(graphInfo, token)
             .then((res) => {
-                console.log(res);
                 props.onClose();
                 props.onSaveYes(res);
             })

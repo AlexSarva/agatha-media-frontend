@@ -14,7 +14,6 @@ function Search(props) {
     const searchValue = useRef();
 
     function handleSearchRes(res) {
-        console.log(res);
         setQuery(res.url);
         setSearchPopup(false);
         searchValue.current.focus();

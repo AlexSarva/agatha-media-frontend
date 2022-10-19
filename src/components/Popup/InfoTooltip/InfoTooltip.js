@@ -17,7 +17,6 @@ function InfoTooltip(props) {
     useEffect(() => {
         if (props.data.hasOwnProperty("data")) {
             let savedDate = new Date(Date.parse(props.data.data.created));
-            console.log("Дата: ", savedDate);
             const stringDate = savedDate.toLocaleDateString('ru-RU', dateOptions);
             setDate(stringDate);
         }

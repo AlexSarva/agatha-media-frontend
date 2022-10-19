@@ -84,7 +84,6 @@ const NetworkGraphNew = (props) => {
             .catch((err) => {
                 console.log(`Ошибка: ${err}`);
             })
-        console.log(query);
     }
 
     function createGraph(data) {
