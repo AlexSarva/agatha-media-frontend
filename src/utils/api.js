@@ -1,5 +1,5 @@
 const apiConfig = {
-    baseUrl: 'http://localhost:8080',
+    baseUrl: 'http://80.66.158.182:2904',
     headers: {
         'Content-Type': 'application/json'
     }

@@ -1,6 +1,6 @@
 class Auth {
     constructor() {
-        this._baseUrl = 'http://localhost:8080';
+        this._baseUrl = 'http://80.66.158.182:2904';
         this._headers = {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
