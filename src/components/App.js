@@ -4,11 +4,10 @@ import api from '../utils/api';
 import '../styles/Page.css'
 import Signup from './Auth/Signup/Signup';
 import Signin from './Auth/Signin/Signin';
-import {Link, Route, Routes, useNavigate} from 'react-router-dom';
+import {Route, Routes, useNavigate} from 'react-router-dom';
 import Layout from './Layout/Layout';
 import {RequireAuth} from '../hoc/RequireAuth';
 import {AuthProvider} from '../hoc/AuthProvider';
-import {myGraphData} from '../utils/constants';
 import SaveGraphPopup from './Popup/SaveGraphPopup/SaveGraphPopup';
 import {v4 as uuid} from 'uuid';
 import InfoTooltip from './Popup/InfoTooltip/InfoTooltip';
@@ -24,9 +23,7 @@ function App() {
         show: false,
         correct: false
     });
-    const [newGraph, setNewGraph] = useState(null);
     const [sidebarOpened, setSidebarOpened] = useState(true);
-    const [searchValue, setSearchValue] = useState({query: ''});
     const [srcsList, setSrcsList] = useState([]);
     const [graph, setGraph] = useState({
         nodes: [],
@@ -79,7 +76,9 @@ function App() {
     }
 
     function handleNewSource(srcs) {
-        setSrcsList([...srcsList, srcs]);
+        if (!srcsList.some(elem => elem.id === srcs.id)) {
+            setSrcsList([...srcsList, srcs]);
+        }
     }
 
     function handleGetGraphInfo({query}) {
@@ -129,7 +128,7 @@ function App() {
                                     onSubmitSearch={handleGetGraphInfo}
                             />
                         }>
-                            <Route index element={<Main searchValue={searchValue}
+                            <Route index element={<Main
                                                         graphData={graph}
                                                         srcsData={srcsList}
                                                         onNewSource={handleNewSource}

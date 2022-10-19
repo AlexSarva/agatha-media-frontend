@@ -11,4 +11,10 @@
   padding: 0;
   position: relative;
   z-index: 1;
+  cursor: pointer;
+  transition: opacity ease-in-out .2s;
+}
+
+.logo:hover {
+  opacity: 0.6;
 }

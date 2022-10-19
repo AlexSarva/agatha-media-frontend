@@ -27,16 +27,15 @@
 }
 
 .graph {
-  /*max-height: 150px;*/
   background-color: rgba(26, 27, 44, 0.34);
   display: flex;
   flex-direction: column;
   border-radius: 10px;
   overflow: hidden;
-  /*outline: 1px solid #000;*/
   position: relative;
   opacity: 0;
   color: white;
+  transition: all ease-in-out .3s;
 }
 
 .graph:hover {
