@@ -3,7 +3,6 @@ import './Graphs.css';
 import {useAuth} from '../../hook/useAuth';
 import api from '../../utils/api';
 import {useEffect, useState} from 'react';
-import {signLogos} from '../../utils/constants';
 import GraphCard from './GraphCard/GraphCard';
 
 function Graphs(props) {

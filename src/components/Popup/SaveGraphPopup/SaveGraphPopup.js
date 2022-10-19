@@ -1,5 +1,5 @@
 import PopupWithForm from '../PopupWithForm';
-import {useRef, useState, useEffect} from 'react';
+import {useRef, useEffect} from 'react';
 import {useAuth} from '../../../hook/useAuth';
 import api from '../../../utils/api';
 
@@ -7,7 +7,6 @@ function SaveGraphPopup(props) {
 
     const {token} = useAuth();
 
-    // const [name, setName] = useState('');
     const description = useRef();
 
     function handleSubmit(e) {

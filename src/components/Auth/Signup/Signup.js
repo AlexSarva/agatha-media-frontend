@@ -11,11 +11,7 @@ function Signup(props) {
     const [password, setPassword] = useState('');
     const [username, setUsername] = useState('');
     const navigate = useNavigate();
-    // const location = useLocation();
     const {signup} =  useAuth();
-
-    // const fromPage = location.state?.from?.pathname || '/';
-    // console.log(fromPage);
 
     function handleChangeEmail(e) {
         setEmail(e.target.value);
@@ -31,7 +27,6 @@ function Signup(props) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        console.log(username, email, password);
         signup({username, email, password}, () => navigate('/', {replace:true}));
     }
 

@@ -25,8 +25,6 @@ const options = {
                 type: "arrow",
             }
         },
-        // width: 0.15,
-        // color: { inherit: "from" },
         smooth: {
             type: "continuous",
         },
@@ -49,7 +47,6 @@ const options = {
 
 
 const NetworkGraphNew = (props) => {
-    console.log("render graph");
     const [allNodes, setAllNodes] = useState([]);
     const [allEdges, setAllEdges] = useState([]);
     const [graph, setGraph] = useState({
@@ -58,8 +55,6 @@ const NetworkGraphNew = (props) => {
     });
     const visJsRef = useRef(null);
     const network = useRef(null);
-    console.log("New values: ", {allNodes, allEdges});
-
 
     function handleNewSource(srcs) {
         props.onNewSource(srcs);
@@ -69,9 +64,6 @@ const NetworkGraphNew = (props) => {
         Promise.all([api.getGraphByID(query), api.getSourceByID(query)])
             .then(([graphInfo, srcsInfo]) => {
                 handleNewSource(srcsInfo);
-                console.log(query);
-                console.log(graphInfo.nodes, graphInfo.edges)
-                console.log({allNodes, allEdges})
                 setAllNodes((state) => state.filter((oldNode) => oldNode.id.toString() !== query.toString()));
 
                 let allNodesIds = []
@@ -81,8 +73,6 @@ const NetworkGraphNew = (props) => {
                 const toRemove = new Set(allNodesIds);
 
                 const difference = graphInfo.nodes.filter( x => !toRemove.has(x.id.toString()) );
-                console.log(allNodesIds);
-                console.log(difference);
 
                 setAllNodes((allNodes) => [...allNodes, ...difference]);
                 setAllEdges((allEdges) => [...allEdges, ...graphInfo.edges]);
@@ -102,7 +92,6 @@ const NetworkGraphNew = (props) => {
             visJsRef.current &&
             new Network(visJsRef.current, data, options);
         curNetwork.on("doubleClick", (e) => {
-            console.log(e);
             handleUpdateGraphInfo(e.nodes[0]);
         })
         return curNetwork
@@ -127,7 +116,6 @@ const NetworkGraphNew = (props) => {
     },[allNodes, allEdges])
 
     useEffect(() => {
-        console.log("Graph: ", graph);
         network.current = createGraph(graph);
     },[graph]);
 

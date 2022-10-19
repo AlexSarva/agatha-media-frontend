@@ -21,7 +21,6 @@ function Signin(props) {
 
    function handleSubmit(e) {
         e.preventDefault();
-        console.log(email, password);
         signin({email, password}, () => navigate('/', {replace: true}));
     }
 

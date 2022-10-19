@@ -22,20 +22,10 @@ export const AuthProvider = ({children}) => {
             })
             .catch((err) => {
                 console.log(err)
-                // openAuthPopup(false);
             });
     }, [])
 
     const signin = useCallback(function (newUser, cb) {
-        // const res = {
-        //     username: newUser.username,
-        //     email: newUser.email,
-        //     token: "ewrh35io2pqdsfdkvmjeowpq32wkrfmgbepowp"
-        // }
-        // window.localStorage.setItem('user', JSON.stringify(res));
-        // window.localStorage.setItem('jwt', res.token);
-        // cb();
-
         auth.authorize(newUser)
             .then((res) => {
                 if (res.token) {

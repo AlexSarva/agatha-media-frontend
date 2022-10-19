@@ -3,8 +3,6 @@ import google from '../images/sign/google.svg';
 import apple from '../images/sign/apple.svg';
 
 import navMain from '../images/navi/main.svg';
-import navOrgs from '../images/navi/orgs.svg';
-import navGov from '../images/navi/gov.svg';
 import navOKPD from '../images/navi/okpd.svg';
 
 

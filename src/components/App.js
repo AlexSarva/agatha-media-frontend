@@ -62,8 +62,6 @@ function App() {
     }
 
     function handleNewGraph(graphInfo) {
-        console.log("Открывает попап");
-        console.log(graphInfo);
         setIsSaveGraphPopup({
             show: true,
             sources: graphInfo,
@@ -95,7 +93,6 @@ function App() {
             .catch((err) => {
                 console.log(`Ошибка: ${err}`);
             })
-        console.log(query);
     }
 
     function handleGetGraphByUUID(graph_id, token) {

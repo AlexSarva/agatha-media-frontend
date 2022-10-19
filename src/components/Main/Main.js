@@ -1,6 +1,5 @@
 import './Main.css';
-import {Link, NavLink} from 'react-router-dom';
-import React, {useState} from 'react';
+import React from 'react';
 import NetworkGraphNew from './NetworkGraph/NetworkGraphNew';
 import List from '../List/List';
 
