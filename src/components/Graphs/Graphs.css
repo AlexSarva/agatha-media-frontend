@@ -39,6 +39,12 @@
   color: white;
 }
 
+.graph:hover {
+  opacity: 0.6;
+  background: rgba(33, 34, 59, 0.51);
+  cursor: pointer;
+}
+
 .graph__description {
   width: 75%;
   /*text-align: center;*/

@@ -44,16 +44,20 @@ function App() {
         })
     }
 
-    function handleGraphTooltipOpenYes(data) {
-        setIsGraphTooltipOpen({...isGraphTooltipOpen,
-            show: true,
-            correct: true,
-            data: data})
+    function clearGraphData() {
         setGraph({
             nodes: [],
             edges: []
         });
         setSrcsList([]);
+    }
+
+    function handleGraphTooltipOpenYes(data) {
+        setIsGraphTooltipOpen({...isGraphTooltipOpen,
+            show: true,
+            correct: true,
+            data: data})
+        clearGraphData();
     }
 
     function handleGraphTooltipOpenNo() {
@@ -130,6 +134,7 @@ function App() {
                                                         srcsData={srcsList}
                                                         onNewSource={handleNewSource}
                                                         onAddNewGraph={handleNewGraph}
+                                                        onClearData={clearGraphData}
                             />}/>
                             <Route path="graphs" element={<Graphs onCardClick={handleGetGraphByUUID}/>}/>
                             {/*<Route path="company/:id" element={<Company />}/>*/}

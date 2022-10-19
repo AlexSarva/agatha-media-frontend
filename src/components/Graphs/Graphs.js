@@ -14,7 +14,6 @@ function Graphs(props) {
     function handleDeleteCard(graph_id) {
         api.deleteGraphCard(graph_id, token)
             .then((res) => {
-                // setCards(res);
                 setCards((state) => state.filter((oldCard) => oldCard.graph_id !== graph_id));
             })
             .catch((err) => {

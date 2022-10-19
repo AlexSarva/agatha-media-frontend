@@ -7,12 +7,16 @@ function GraphCard(props) {
     const dateOptions = {year: 'numeric', month: 'short', day: 'numeric' };
     const created = new Date(Date.parse(props.cardData.created));
 
-    function handleCardClick() {
-        props.onCardClick(props.cardData.graph_id, token);
+    function handleCardClick(e) {
+        if (e.target.value !== "Удалить") {
+            props.onCardClick(props.cardData.graph_id, token);
+        }
     }
 
-    function deleteCard() {
-        props.onDelete(props.cardData.graph_id);
+    function deleteCard(e) {
+        if (e.target.value === "Удалить") {
+            props.onDelete(props.cardData.graph_id);
+        }
     }
 
     return (

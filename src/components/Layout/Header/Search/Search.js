@@ -71,7 +71,7 @@ function Search(props) {
                   name="search-form" noValidate>
                 <fieldset className="search__field-set">
                     <input ref={searchValue} value={query} type="text" className="search__input" onChange={handleQuery}
-                           placeholder="Ссылка на источник"
+                           placeholder="Наименование источника или ссылка"
                            required
                            name="search-input"/>
                 </fieldset>
